@@ -1,0 +1,3 @@
+const getRadical = (req, res) => {
+
+}
