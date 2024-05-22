@@ -1,14 +1,15 @@
 import express from 'express';
-import router from './infrastructure/router';
+import { radicalRouter } from './infrastructure/router';
 
 const app = express();
 const port = 3000;
 
-// Use the routes in your application
+// MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/radical', router.radicalRouter);
+// ROUTES
+app.use('/radical', radicalRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

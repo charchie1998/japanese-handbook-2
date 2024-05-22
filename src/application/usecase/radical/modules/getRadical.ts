@@ -1,8 +1,8 @@
-import models from '../../../../domain/model';
+import { radicalModel } from '../../../../domain/model';
 
 async function getRadical(radicalId: string): Promise<any> {
     try {
-        const radical = await models.radicalModel.findById(radicalId);
+        const radical = await radicalModel.findById(radicalId);
         return radical;
     } catch (error) {
         console.error('Error retrieving radical:', error);

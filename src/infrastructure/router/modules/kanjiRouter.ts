@@ -1,30 +1,51 @@
 import express, { Request, Response } from 'express';
 
+import { kanjiService } from '../../../service';
+
 const kanjiRouter = express.Router();
 
-// GET /api/radical
-kanjiRouter.get('/', (req: Request, res: Response) => {
-    // return radicalController.getRadical(req, res);
+kanjiRouter.post('/get', async (req: Request, res: Response) => {
+    try {
+        const request = req.body;
+        const response = await kanjiService.getKanji(request);
+        res.send(response);
+    } catch (error: any) {
+        console.error("Error:", error.message);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
-// POST /api/radical
-kanjiRouter.post('/', (req: Request, res: Response) => {
-    // Handle POST request logic here
-    res.send('POST /api/radical');
+kanjiRouter.post('/add', async (req: Request, res: Response) => {
+    try {
+        const request = req.body;
+        const response = await kanjiService.addKanji(request);
+        res.send(response);
+    } catch (error: any) {
+        console.error("Error:", error.message);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
-// PUT /api/radical/:id
-kanjiRouter.put('/:id', (req: Request, res: Response) => {
-    // Handle PUT request logic here
-    const id = req.params.id;
-    res.send(`PUT /api/radical/${id}`);
+kanjiRouter.post('/edit', async (req: Request, res: Response) => {
+    try {
+        const request = req.body;
+        const response = await kanjiService.addKanji(request);
+        res.send(response);
+    } catch (error: any) {
+        console.error("Error:", error.message);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
-// DELETE /api/radical/:id
-kanjiRouter.delete('/:id', (req: Request, res: Response) => {
-    // Handle DELETE request logic here
-    const id = req.params.id;
-    res.send(`DELETE /api/radical/${id}`);
+kanjiRouter.post('/remove', async (req: Request, res: Response) => {
+    try {
+        const request = req.body;
+        const response = await kanjiService.addKanji(request);
+        res.send(response);
+    } catch (error: any) {
+        console.error("Error:", error.message);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 export default kanjiRouter;

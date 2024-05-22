@@ -3,6 +3,7 @@ import { Schema } from 'mongoose';
 const radicalSchema: Schema = new Schema({
     radical: {
         type: String,
+        unique: true,
         required: true,
     },
     strokes: {

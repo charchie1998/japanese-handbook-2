@@ -1,5 +1,5 @@
 import radicalRouter from './modules/radicalRouter';
 
-export default {
+export {
     radicalRouter
 };

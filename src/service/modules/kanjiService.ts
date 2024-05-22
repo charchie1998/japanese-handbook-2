@@ -1,13 +1,13 @@
 
 
 import persistence from '../../application/utilities/persistence';
-import { radicalUsecase } from '../../application/usecase';
+import { radicalUsecase, kanjiUsecase } from '../../application/usecase';
 
-const getRadical = async (data: any) => {
+const getKanji = async (data: any) => {
     try {
         await persistence.connect();
-        const radicalId = data.id || '';
-        const result = await radicalUsecase.getRadical(radicalId);
+        const kanjiId = data.id || '';
+        const result = await kanjiUsecase.getKanji(kanjiId);
 
         await persistence.disconnect();
         return result
@@ -19,11 +19,11 @@ const getRadical = async (data: any) => {
 
 }
 
-const addRadical = async (data: any) => {
+const addKanji = async (data: any) => {
     try {
         await persistence.connect();
-        const radical = data || {};
-        const result = await radicalUsecase.addRadical(radical);
+        const kanji = data || {};
+        const result = await kanjiUsecase.addKanji(kanji);
 
         await persistence.disconnect();
         return result;
@@ -35,6 +35,6 @@ const addRadical = async (data: any) => {
 }
 
 export {
-    getRadical,
-    addRadical
+    getKanji,
+    addKanji
 }

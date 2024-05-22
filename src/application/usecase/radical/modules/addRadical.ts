@@ -1,8 +1,8 @@
-import models from '../../../../domain/model';
+import { radicalModel } from '../../../../domain/model';
 
 const addRadical = async (radicalData: any) => {
     try {
-        const newRadical = new models.radicalModel({
+        const newRadical = new radicalModel({
             radical: radicalData.radical,
             meaning: radicalData.meaning,
             strokes: radicalData.strokes,
@@ -17,12 +17,12 @@ const addRadical = async (radicalData: any) => {
         if (validationError) {
             throw new Error(validationError.message);
         };
-
+        
         const addedRadical = await newRadical.save();
         return addedRadical;
     } catch (error: any) {
-        console.error(error);
-        throw new Error(error?.message || 'Failed to add radical');
+        console.error("Error:", error.message);
+        throw new Error("Add Radical Failed");
     }
 };
 

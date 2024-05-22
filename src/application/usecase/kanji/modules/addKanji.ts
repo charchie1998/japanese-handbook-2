@@ -1,8 +1,8 @@
-import models from '../../../../domain/model';
+import { radicalModel } from '../../../../domain/model';
 
 const addRadical = async (radicalData: any) => {
     try {
-        const newRadical = new models.radicalModel({
+        const newRadical = new radicalModel({
             radical: radicalData.radical,
             meaning: radicalData.meaning,
             strokes: radicalData.strokes,

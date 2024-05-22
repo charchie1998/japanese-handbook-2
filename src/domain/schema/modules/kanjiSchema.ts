@@ -3,7 +3,8 @@ import mongoose, { Schema } from 'mongoose';
 const kanjiSchema: Schema = new Schema({
     radicals: {
         type: [mongoose.Schema.Types.ObjectId], 
-        ref: 'radicalSchema'
+        ref: 'radicalSchema',
+        required: true,
     },
     strokes: {
         type: Number,
