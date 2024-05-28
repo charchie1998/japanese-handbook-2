@@ -1,29 +1,30 @@
-import { radicalModel } from '../../../../domain/model';
+import { kanjiModel } from '../../../../domain/model';
 
-const addRadical = async (radicalData: any) => {
+const addKanji = async (kanjiData: any) => {
     try {
-        const newRadical = new radicalModel({
-            radical: radicalData.radical,
-            meaning: radicalData.meaning,
-            strokes: radicalData.strokes,
-            positions: radicalData.positions,
-            reading: radicalData.reading,
-            notes: radicalData.notes,
-            relevance: radicalData.relevance
+        const newKanji = new kanjiModel({
+            kanji: kanjiData.kanji,
+            radicals: kanjiData.radicals,
+            meaning: kanjiData.meaning,
+            strokes: kanjiData.strokes,
+            readings: kanjiData.readings,
+            notes: kanjiData.notes,
+            level: kanjiData.level,
+            relevance: kanjiData.relevance
         });
 
-        const validationError = newRadical.validateSync();
+        const validationError = newKanji.validateSync();
 
         if (validationError) {
             throw new Error(validationError.message);
         };
 
-        const addedRadical = await newRadical.save();
+        const addedRadical = await newKanji.save();
         return addedRadical;
-    } catch (error) {
-        console.error(error);
-        throw new Error('Failed to add radical');
+    } catch (error: any) {
+        console.error(error.message);
+        throw new Error('Failed to add kanji');
     }
 };
 
-export default addRadical;
+export default addKanji;

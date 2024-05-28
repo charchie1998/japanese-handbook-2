@@ -2,7 +2,7 @@ import { radicalModel } from '../../../../domain/model';
 
 async function getRadicalByRadical(radical: string): Promise<any> {
     try {
-        const result = await radicalModel.find({
+        const result = await radicalModel.findOne({
             radical: radical
         });
         return result;

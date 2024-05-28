@@ -10,25 +10,19 @@ const radicalSchema: Schema = new Schema({
         type: Number,
         required: true,
     },
-    meaning: {
-        type: String,
+    meanings: {
+        type: [ String ],
         required: true,
     },
     positions: {
-        type: [String],
-        required: false,
+        type: [ String ]
     },
-    reading: {
-        type: String,
-        required: false,
+    isPseudo: {
+        type: Boolean,
+        default: false
     },
     notes: {
-        type: String,
-        required: false,
-    },
-    relevance: {
-        type: String,
-        required: false,
+        type: String
     },
     createdAt: {
         type: Date,
