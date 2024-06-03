@@ -1,5 +1,5 @@
 import express from 'express';
-import { radicalRouter, kanjiRouter } from './infrastructure/router';
+import { radicalRouter, kanjiRouter, vocabularyRouter } from './infrastructure/router';
 
 const app = express();
 const port = 3000;
@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTES
 app.use('/radical', radicalRouter);
 app.use('/kanji', kanjiRouter);
+app.use('/vocabulary', vocabularyRouter);
 
 // ADD DATA TO DATABASE
 app.use('/seed', kanjiRouter);

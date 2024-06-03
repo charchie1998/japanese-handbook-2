@@ -30,11 +30,11 @@ const vocabularySchema: Schema = new Schema({
     synonym: {
         type: [ mongoose.Schema.Types.ObjectId ], 
         required: false,
-        ref: 'Kanji',
+        ref: 'Vocabulary',
     },
     antonym: {
         type: [ mongoose.Schema.Types.ObjectId ], 
-        ref: 'Kanji',
+        ref: 'Vocabulary',
     },
     createdAt: {
         type: Date,

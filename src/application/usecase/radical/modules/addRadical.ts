@@ -2,15 +2,7 @@ import { radicalModel } from '../../../../domain/model';
 
 const addRadical = async (radicalData: any) => {
     try {
-        const newRadical = new radicalModel({
-            radical: radicalData.radical,
-            meaning: radicalData.meaning,
-            strokes: radicalData.strokes,
-            positions: radicalData.positions,
-            reading: radicalData.reading,
-            notes: radicalData.notes,
-            relevance: radicalData.relevance
-        });
+        const newRadical = new radicalModel(radicalData);
 
         const validationError = newRadical.validateSync();
 

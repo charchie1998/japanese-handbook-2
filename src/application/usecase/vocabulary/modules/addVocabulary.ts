@@ -1,10 +1,8 @@
 import { vocabularyModel } from '../../../../domain/model';
 
-const addVocabulary = async (data: any) => {
+const addVocabulary = async (vocabularyData: any) => {
     try {
-        const newVocabulary = new vocabularyModel({
-            ...data
-        });
+        const newVocabulary = new vocabularyModel(vocabularyData);
 
         const validationError = newVocabulary.validateSync();
 

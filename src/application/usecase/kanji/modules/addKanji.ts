@@ -2,16 +2,7 @@ import { kanjiModel } from '../../../../domain/model';
 
 const addKanji = async (kanjiData: any) => {
     try {
-        const newKanji = new kanjiModel({
-            kanji: kanjiData.kanji,
-            radicals: kanjiData.radicals,
-            meaning: kanjiData.meaning,
-            strokes: kanjiData.strokes,
-            readings: kanjiData.readings,
-            notes: kanjiData.notes,
-            level: kanjiData.level,
-            relevance: kanjiData.relevance
-        });
+        const newKanji = new kanjiModel(kanjiData);
 
         const validationError = newKanji.validateSync();
 

@@ -24,7 +24,7 @@ const addKanji = async (data: any) => {
     try {
         await persistence.connect();
         const kanji = data || {};
-        const radicals: any[] = [];
+        const radicalIds: any[] = [];
 
         if (kanji.radicals) {
             const radicalPromises = kanji.radicals.map((radical: any) => radicalUsecase.getRadicalByRadical(radical));
@@ -35,11 +35,11 @@ const addKanji = async (data: any) => {
                 if (!result) {
                     throw new Error(`Radical not found for index ${index}.`);
                 }
-                radicals.push(result);
+                radicalIds.push(result);
             });
         }
         
-        kanji.radicals = radicals;
+        kanji.radicals = radicalIds;
 
         const result = await kanjiUsecase.addKanji(kanji);
 
